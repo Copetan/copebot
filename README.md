@@ -6,11 +6,11 @@ a discord bot that does a lot of random things! I don't know if anyone will actu
 * **Copetan** - *Author* - [Copetan (He wont let me put his real name)](https://github.com/Copetan)
 * **Thomas Wessel** - *Co-Author* - [Collectioncard](https://github.com/Collectioncard)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+
 
 ## License
 
-This project is licensed under the Apache License - see the [LICENSE.md](https://github.com/Copetan/copebot/LICENSE) file for details
+This project is licensed under the Apache License - see the [LICENSE.md](https://github.com/Copetan/copebot/blob/master/LICENSE) file for details
 
 ## Acknowledgments
 
