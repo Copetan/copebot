@@ -1,7 +1,9 @@
 package events;
 
+import net.dv8tion.jda.core.entities.Invite;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.core.requests.restaction.InviteAction;
 
 public class NewEvents extends ListenerAdapter {
     @Override
@@ -27,7 +29,7 @@ public class NewEvents extends ListenerAdapter {
                     }
                     else if ( args[i+1].equalsIgnoreCase( "invite" ) ) {
                         System.out.println("Asked for invite link");
-                        event.getChannel().sendMessage( event.getGuild().getInvites(). )
+                        break;
                     }
                 }
                 break;
