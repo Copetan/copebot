@@ -2,12 +2,13 @@ package events;
 
 import net.dv8tion.jda.core.entities.Invite;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.core.events.message.*;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 import net.dv8tion.jda.core.requests.restaction.InviteAction;
 
 public class NewEvents extends ListenerAdapter {
     @Override
-    public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
+    public void onMessageReceived(MessageReceivedEvent event) {
         boolean hasTalked = false;
         String[] args = event.getMessage().getContentRaw().split(" ");
 
