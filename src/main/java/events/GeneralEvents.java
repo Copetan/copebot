@@ -1,12 +1,13 @@
 package events;
 
+import net.dv8tion.jda.core.entities.ChannelType;
 import net.dv8tion.jda.core.entities.Invite;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.events.message.*;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 import net.dv8tion.jda.core.requests.restaction.InviteAction;
 
-public class NewEvents extends ListenerAdapter {
+public class GeneralEvents extends ListenerAdapter {
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         boolean hasTalked = false;
@@ -23,7 +24,7 @@ public class NewEvents extends ListenerAdapter {
                         event.getChannel().sendMessage("Your username is " + event.getAuthor().getName() ).queue();
                         break;
                     }
-                    else if ( args[i + 1].equalsIgnoreCase("server") ) {
+                    else if ( args[i + 1].equalsIgnoreCase("server") && ChannelType.fromId(event.getChannelType().getId()).isGuild()) {
                         System.out.println("Asked for server name");
                         event.getChannel().sendMessage( "The name of this server is " + event.getGuild().getName() ).queue();
                         break;
