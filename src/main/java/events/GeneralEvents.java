@@ -29,8 +29,9 @@ public class GeneralEvents extends ListenerAdapter {
                         event.getChannel().sendMessage( "The name of this server is " + event.getGuild().getName() ).queue();
                         break;
                     }
-                    else if ( args[i+1].equalsIgnoreCase( "invite" ) ) {
+                    else if ( args[i+1].equalsIgnoreCase( "help" ) ) {
                         System.out.println("Asked for invite link");
+
                         break;
                     }
                 }
