@@ -38,6 +38,15 @@ public class GeneralEvents extends ListenerAdapter {
                         System.out.println("Asked for an Emoji");
                         event.getChannel().sendMessage("<:SMB2POW:467988438348726283>").queue();
                     }
+
+                    else if (args[i+1].equalsIgnoreCase( "backup")){
+                        if (event.getAuthor().getName().equalsIgnoreCase("Copetan")){
+                           event.getChannel().sendMessage( Integer.toString( event.getChannel().getIterableHistory().getLimit() ) ).queue();
+
+                        }
+                        else
+                            event.getChannel().sendMessage("You are not Copetan!");
+                    }
                 }
                 break;
             }
