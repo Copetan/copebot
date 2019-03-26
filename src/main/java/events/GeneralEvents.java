@@ -5,6 +5,7 @@ import net.dv8tion.jda.core.entities.Invite;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.events.message.*;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import functions.math;
 import net.dv8tion.jda.core.requests.restaction.InviteAction;
 
 public class GeneralEvents extends ListenerAdapter {
@@ -29,10 +30,13 @@ public class GeneralEvents extends ListenerAdapter {
                         event.getChannel().sendMessage( "The name of this server is " + event.getGuild().getName() ).queue();
                         break;
                     }
-                    else if ( args[i+1].equalsIgnoreCase( "help" ) ) {
-                        System.out.println("Asked for invite link");
-
+                    else if ( args[i+1].equalsIgnoreCase( "math" ) ) {
+                        System.out.println("Requested math calculation");
                         break;
+                    }
+                    else if ( args[i+1].equalsIgnoreCase("emoji")) {
+                        System.out.println("Asked for an Emoji");
+                        event.getChannel().sendMessage("<:SMB2POW:467988438348726283>").queue();
                     }
                 }
                 break;
