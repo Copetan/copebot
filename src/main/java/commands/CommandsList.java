@@ -1,22 +1,20 @@
 package commands;
 
-import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandClientBuilder;
+import commands.list.namecommand;
 import commands.list.testcommand;
 
-import java.util.LinkedList;
+
+public class CommandsList extends CommandClientBuilder {
 
 
-public class CommandsList {
+    public CommandClientBuilder commandList() {
 
-    private final LinkedList<Command> commands = new LinkedList<>();
+        this.addCommand(new testcommand());
 
-    public CommandClientBuilder CommandsList() {
+        this.addCommand(new namecommand());
 
-        commands.add( testcommand() );
-
-      return this;
-
+        return this;
     }
 
 }

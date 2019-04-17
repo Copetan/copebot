@@ -9,6 +9,7 @@ public class testcommand extends Command {
 
         this.name = "test";
         this.help = "This is a test";
+        this.category = new Category("Test");
         this.arguments = "wowowowo";
         this.guildOnly = false;
 
@@ -16,6 +17,8 @@ public class testcommand extends Command {
 
     @Override
     protected void execute(CommandEvent event){
+
+        event.reply("It works!");
 
     }
 
