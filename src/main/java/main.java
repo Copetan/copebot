@@ -4,25 +4,31 @@ import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.entities.Game;
 import commands.*;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+
 
 public class main {
 
     public static void main(String[] args) throws Exception {
 
-        CommandsList client = new CommandsList();
+        List<String> stuff = Files.readAllLines(Paths.get("wow.txt"));
 
+        String id = stuff.get(0);
+        String token = stuff.get(1);
+        String prefix = stuff.get(2);
+
+        CommandsList client = new CommandsList();
         EventWaiter waiter = new EventWaiter();
 
-        client.setOwnerId("360613897994108939");
-
+        client.setOwnerId(id);
         client.setGame(Game.playing("with existence"));
-
-        client.setPrefix("!!");
-
+        client.setPrefix(prefix);
         client.commandList();
 
         new JDABuilder(AccountType.BOT)
-                .setToken("NTUzMjc0Nzc2MTg2MTI2MzU2.D2LtGA.bXsagSg1hzbZqZa8AjGzdhczigQ")
+                .setToken(token)
                 .addEventListener(waiter)
                 .addEventListener(client.build())
                 .build();
