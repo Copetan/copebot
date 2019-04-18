@@ -1,8 +1,8 @@
 package commands;
 
 import com.jagrosh.jdautilities.command.CommandClientBuilder;
-import commands.list.namecommand;
-import commands.list.testcommand;
+import commands.list.*;
+
 
 
 public class CommandsList extends CommandClientBuilder {
@@ -10,9 +10,9 @@ public class CommandsList extends CommandClientBuilder {
 
     public CommandClientBuilder commandList() {
 
-        this.addCommand(new testcommand());
-
-        this.addCommand(new namecommand());
+        this.addCommand(new TestCommand());
+        this.addCommand(new NameCommand());
+        this.addCommand(new WikiCommand());
 
         return this;
     }

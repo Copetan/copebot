@@ -3,9 +3,9 @@ package commands.list;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 
-public class namecommand extends Command {
+public class NameCommand extends Command {
 
-    public namecommand(){
+    public NameCommand(){
         this.name = "name";
         this.category = new Category("Miscellaneous");
         this.help = "This command just states your username";

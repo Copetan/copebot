@@ -3,9 +3,9 @@ package commands.list;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 
-public class testcommand extends Command {
+public class TestCommand extends Command {
 
-    public testcommand(){
+    public TestCommand(){
 
         this.name = "test";
         this.help = "This is a test";
