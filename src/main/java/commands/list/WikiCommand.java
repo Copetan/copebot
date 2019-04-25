@@ -3,9 +3,8 @@ package commands.list;
 import benjaminkomen.jwiki.core.Wiki;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
-import okhttp3.HttpUrl;
-
-import java.util.ArrayList;
+import methodsnstuff.JsonReader;
+import org.json.JSONObject;
 
 public class WikiCommand extends Command {
 
@@ -21,9 +20,7 @@ public class WikiCommand extends Command {
 
         Wiki wiki = new Wiki("joke-battles.fandom.com");
 
-        if (wiki.exists("Copetan")){
-            event.reply("It exists!");
-        }
+
     }
 
 }

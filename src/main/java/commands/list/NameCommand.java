@@ -2,6 +2,7 @@ package commands.list;
 
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
+import methodsnstuff.Logger;
 
 public class NameCommand extends Command {
 
@@ -15,5 +16,6 @@ public class NameCommand extends Command {
     @Override
     protected void execute(CommandEvent event){
         event.reply("Your username is " + event.getAuthor().getName());
+        Logger.logger(event, name);
     }
 }
