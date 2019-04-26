@@ -19,8 +19,7 @@ public class CalcCommand extends Command {
     @Override
     protected void execute(CommandEvent event) {
         Calculator calc = new Calculator();
-        double res = calc.calculate(event.getArgs());
-        event.reply(String.valueOf(res));
+        event.reply(calc.calculate(event.getArgs()));
         CommandLogger.logger(event, name);
     }
 }
