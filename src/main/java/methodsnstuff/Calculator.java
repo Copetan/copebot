@@ -4,7 +4,7 @@ import adts.Stack;
 
 public class Calculator {
 
-    public double calculate(String toAdd){
+    public String calculate(String toAdd){
 
 
         return calculatePostfix(toAdd);
@@ -15,7 +15,7 @@ public class Calculator {
     }
 
 
-    private Double calculatePostfix(String postFixExpression){
+    private String calculatePostfix(String postFixExpression){
 
         boolean hasErrored = false;
 
@@ -48,13 +48,13 @@ public class Calculator {
         //print the result when finished - This could fail if the previous try{} failed
         //This will only run if the stack contains one item and an error has not occured.
         if(Numbers.getSize() == 1 && hasErrored == false){
-            return (Double)Numbers.pop();
+            return("The answer is: " + Numbers.pop());
         }else{
-            System.out.println("Unable to return an answer!");
+            return("Unable to return an answer!");
         }
 
 
-        return 0.0;
+
 
     }
 
