@@ -48,7 +48,7 @@ public class Calculator {
         //print the result when finished - This could fail if the previous try{} failed
         //This will only run if the stack contains one item and an error has not occured.
         if(Numbers.getSize() == 1 && hasErrored == false){
-            System.out.println("The answer is: " + Numbers.pop());
+            return (Double)Numbers.pop();
         }else{
             System.out.println("Unable to return an answer!");
         }

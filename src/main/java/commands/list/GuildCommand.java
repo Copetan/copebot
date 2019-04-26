@@ -4,18 +4,18 @@ import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import methodsnstuff.CommandLogger;
 
-public class NameCommand extends Command {
+public class GuildCommand extends Command {
 
-    public NameCommand(){
-        this.name = "name";
+    public GuildCommand(){
+        this.name = "server";
         this.category = new Category("Miscellaneous");
-        this.help = "This command just states your username";
-        this.guildOnly = false;
+        this.help = "This Command states the server name (only works in servers)";
+        this.guildOnly = true;
     }
 
     @Override
     protected void execute(CommandEvent event){
-        event.reply("Your username is " + event.getAuthor().getName());
+        event.reply(event.getGuild().getName());
         CommandLogger.logger(event, name);
     }
 }

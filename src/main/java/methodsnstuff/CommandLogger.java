@@ -2,12 +2,15 @@ package methodsnstuff;
 
 import com.jagrosh.jdautilities.command.CommandEvent;
 import net.dv8tion.jda.core.entities.ChannelType;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
-public class Logger {
+public class CommandLogger {
 
-    public static void logger(CommandEvent event, String name){
+    public static void logger(CommandEvent event, String name) {
 
         String time = Timestamp.valueOf(LocalDateTime.now()).toString();
 
@@ -41,6 +44,11 @@ public class Logger {
                             + " ("
                             + event.getGuild().getId() + ")"
             );
+        }
+        try {
+            Files.write(Paths.get("file"), name.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
