@@ -1,21 +1,37 @@
 //Thomas Wessel 2019
 
+
+
+//Math things that copebot
+
 package methodsnstuff;
 
 import adts.Stack;
 
 public class Calculator {
 
-    public String calculate(String toAdd){
+    /**
+     * -----------------------------------------------------------------------+
+     * These methods are what should be called. All others should be private. |
+     * -----------------------------------------------------------------------+
+     **/
 
-        String fixedInput = postfixToInfix(toAdd);
-
+    public String calculateInfix(String toAdd){
+        String fixedInput = infixToPostfix(toAdd);
         return calculatePostfix(fixedInput);
-
     }
 
-    //This method is used for the postfixToInfix method
-    private int getPrecidence(char toCheck){
+    public String getPostfix(String toConvert){
+        return infixToPostfix(toConvert);
+    }
+
+    /**
+    *---------------------------------------------------------+
+    * This set of methods converts a infix equation to postfix|
+    * -Private                                                |
+    *---------------------------------------------------------+
+    **/
+    private int getPrecedence(char toCheck){
         if(toCheck == '+' || toCheck == ('-')){
             return 1;
         }
@@ -28,7 +44,7 @@ public class Calculator {
         }
     }
 
-    private String postfixToInfix(String toConvert ){
+    private String infixToPostfix(String toConvert ){
 
         String toReturn = "";
 
@@ -60,7 +76,7 @@ public class Calculator {
                 }
             }else{
                 //if the program gets here, we have an operator
-                while (!stack.isEmpty() && getPrecidence(current) <= getPrecidence((Character) stack.peek())){
+                while (!stack.isEmpty() && getPrecedence(current) <= getPrecedence((Character) stack.peek())){
                     toReturn += stack.pop();
                 }
                 stack.push(current);
@@ -76,6 +92,13 @@ public class Calculator {
     }
 
 
+    /**
+     * --------------------------------------+
+     * @param postFixExpression              |
+     * @return String containing the result  |
+     *---------------------------------------+
+     */
+    //The following methods are all to calculate an equation given in postfix form
     private String calculatePostfix(String postFixExpression){
 
         boolean hasErrored = false;
@@ -119,7 +142,6 @@ public class Calculator {
 
     }
 
-
     private boolean isOperator(char i){
         return i == '+' || i == '-' || i == '*' || i == '/' || i == '%';
     }
@@ -148,7 +170,6 @@ public class Calculator {
         }
 
     }
-
 
 
 
