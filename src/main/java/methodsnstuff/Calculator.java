@@ -1,8 +1,12 @@
 //Thomas Wessel 2019
 
 
+/*
+//TODO
+1. Convert infix to postfix - DONE
+2. Calculate the result of a postfix equation - DONE
 
-//Math things that copebot
+*/
 
 package methodsnstuff;
 
@@ -111,8 +115,8 @@ public class Calculator {
                 //this can fail if there is a malformed equation
                 try{
                     //Get two numbers from the stack and store them in variables
-                    int num1 = (Integer)Numbers.pop();
-                    int num2 = (Integer)Numbers.pop();
+                    Double num1 = (Double)Numbers.pop();
+                    Double num2 = (Double)Numbers.pop();
                     //perform operation and push the result from the stack
                     Numbers.push(performOperation(postFixExpression.charAt(i), num1, num2 ));
 
@@ -125,7 +129,8 @@ public class Calculator {
             //While the specification only wants one long string, this method is a bit more robust
             // as it can take a string in any format as long as there are digits entered
             else if(Character.isDigit(postFixExpression.charAt(i))){
-                Numbers.push(Character.getNumericValue(postFixExpression.charAt(i)));
+                double toPush = Character.getNumericValue(postFixExpression.charAt(i));
+                Numbers.push(toPush);
             }
         }
 
@@ -134,19 +139,15 @@ public class Calculator {
         if(Numbers.getSize() == 1 && hasErrored == false){
             return("The answer is: " + Numbers.pop());
         }else{
-            return("Unable to return an answer!");
+            return("No");
         }
-
-
-
-
     }
 
     private boolean isOperator(char i){
         return i == '+' || i == '-' || i == '*' || i == '/' || i == '%';
     }
 
-    private static int performOperation(char operator, int num1, int num2) throws IllegalArgumentException{
+    private static double performOperation(char operator, double num1, double num2) throws IllegalArgumentException{
         if(operator == '+'){
             return num1 + num2;
         }
@@ -170,9 +171,5 @@ public class Calculator {
         }
 
     }
-
-
-
-
 
 }
