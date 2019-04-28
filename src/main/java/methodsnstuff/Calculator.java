@@ -1,3 +1,5 @@
+//Thomas Wessel 2019
+
 package methodsnstuff;
 
 import adts.Stack;
@@ -6,12 +8,71 @@ public class Calculator {
 
     public String calculate(String toAdd){
 
+        String fixedInput = postfixToInfix(toAdd);
 
-        return calculatePostfix(toAdd);
+        return calculatePostfix(fixedInput);
+
+    }
+
+    //This method is used for the postfixToInfix method
+    private int getPrecidence(char toCheck){
+        if(toCheck == '+' || toCheck == ('-')){
+            return 1;
+        }
+        else if(toCheck == '*' || toCheck == '/' || toCheck == '%'){
+            return 2;
+        }
+        else{
+            //It shouldn't get here...
+            return -1;
+        }
     }
 
     private String postfixToInfix(String toConvert ){
-        return "";
+
+        String toReturn = "";
+
+        Stack stack = new Stack();
+
+        for(int i = 0; i < toConvert.length(); i++){
+            //get the char at i
+            char current = toConvert.charAt(i);
+
+            //Now we need to test to see what current is
+
+            //first see if current is a digit
+            if(Character.isDigit(current)){
+                toReturn += current;
+
+            }else if(current == '('){
+                stack.push(current);
+            }else if(current == ')'){
+                //If this is encountered, there *should* be a ( somewhere in the stack.
+                while(!stack.isEmpty() && (Character) stack.peek() != '('){
+                    toReturn += stack.pop();
+                }
+
+                if(!stack.isEmpty() && (Character) stack.peek() != '('){
+                    //welp, the previous comment was wrong...
+                    return "Invalid equation!";
+                }else{
+                    stack.pop();
+                }
+            }else{
+                //if the program gets here, we have an operator
+                while (!stack.isEmpty() && getPrecidence(current) <= getPrecidence((Character) stack.peek())){
+                    toReturn += stack.pop();
+                }
+                stack.push(current);
+            }
+        }
+
+        //finally, pop remaining operators
+        while(!stack.isEmpty()){
+            toReturn += stack.pop();
+        }
+        System.out.println("The equation is: " + toReturn);
+        return toReturn;
     }
 
 
