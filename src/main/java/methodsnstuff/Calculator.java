@@ -6,6 +6,7 @@
 1. Convert infix to postfix - DONE
 2. Calculate the result of a postfix equation - DONE
 
+
 */
 
 package methodsnstuff;
@@ -58,10 +59,15 @@ public class Calculator {
             //get the char at i
             char current = toConvert.charAt(i);
 
+            //We might need to add some spaces
+            if(current == ' '|| isOperator(current)){
+                toReturn += " ";
+            }
+
             //Now we need to test to see what current is
 
             //first see if current is a digit
-            if(Character.isDigit(current)){
+            if(isPartOfNumber(current)){
                 toReturn += current;
 
             }else if(current == '('){
@@ -109,8 +115,11 @@ public class Calculator {
 
         Stack Numbers = new Stack();
 
+        //This String is the number to push to the stack
+        String toPush = "";
+
         for(int i = 0; i < postFixExpression.length(); i++){
-            if(isOperator(postFixExpression.charAt(i)) && hasErrored == false){
+            if(isOperator(postFixExpression.charAt(i)) && !hasErrored){
 
                 //this can fail if there is a malformed equation
                 try{
@@ -128,21 +137,32 @@ public class Calculator {
             }
             //While the specification only wants one long string, this method is a bit more robust
             // as it can take a string in any format as long as there are digits entered
-            else if(Character.isDigit(postFixExpression.charAt(i))){
-                double toPush = Character.getNumericValue(postFixExpression.charAt(i));
-                Numbers.push(toPush);
+            else if(isPartOfNumber(postFixExpression.charAt(i))){
+                toPush += postFixExpression.charAt(i);
+
+                if(!isPartOfNumber(postFixExpression.charAt(i+1))){
+                    Numbers.push(Double.valueOf(toPush));
+                    toPush = "";
+                }
+
             }
         }
 
         //print the result when finished - This could fail if the previous try{} failed
         //This will only run if the stack contains one item and an error has not occured.
-        if(Numbers.getSize() == 1 && hasErrored == false){
+        if(Numbers.getSize() == 1 && !hasErrored){
+            System.out.println("IS HERE");
             return("The answer is: " + Numbers.pop());
         }else{
+            System.out.println(Numbers.pop());
             return("No");
+
         }
     }
 
+    private boolean isPartOfNumber(char i){
+        return Character.isDigit(i) || i == '.';
+    }
     private boolean isOperator(char i){
         return i == '+' || i == '-' || i == '*' || i == '/' || i == '%';
     }
