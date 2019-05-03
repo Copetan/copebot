@@ -5,8 +5,6 @@
 //TODO
 1. Convert infix to postfix - DONE
 2. Calculate the result of a postfix equation - DONE
-
-
 */
 
 package methodsnstuff;
@@ -31,17 +29,20 @@ public class Calculator {
     }
 
     /**
-    *---------------------------------------------------------+
-    * This set of methods converts a infix equation to postfix|
-    * -Private                                                |
-    *---------------------------------------------------------+
-    **/
+     *---------------------------------------------------------+
+     * This set of methods converts a infix equation to postfix|
+     * -Private                                                |
+     *---------------------------------------------------------+
+     **/
     private int getPrecedence(char toCheck){
         if(toCheck == '+' || toCheck == ('-')){
             return 1;
         }
         else if(toCheck == '*' || toCheck == '/' || toCheck == '%'){
             return 2;
+        }
+        else if(toCheck == '^'){
+            return 3;
         }
         else{
             //It shouldn't get here...
@@ -137,18 +138,16 @@ public class Calculator {
             }
             //While the specification only wants one long string, this method is a bit more robust
             // as it can take a string in any format as long as there are digits entered
-            else if(isPartOfNumber(postFixExpression.charAt(i)) && !hasErrored){
+            else if(isPartOfNumber(postFixExpression.charAt(i))){
                 toPush += postFixExpression.charAt(i);
 
                 if(!isPartOfNumber(postFixExpression.charAt(i+1))){
-
-                    if(isValidNumber(toPush)){
+                    try {
                         Numbers.push(Double.valueOf(toPush));
                         toPush = "";
-                    }else{
-                        hasErrored = true;
+                    }catch (Exception e){
+                        return "I think you entered something wrong!";
                     }
-
                 }
 
             }
@@ -157,7 +156,7 @@ public class Calculator {
         //print the result when finished - This could fail if the previous try{} failed
         //This will only run if the stack contains one item and an error has not occured.
         if(Numbers.getSize() == 1 && !hasErrored){
-            System.out.println("The answer is: " + Numbers.peek());
+            System.out.println("IS HERE");
             return("The answer is: " + Numbers.pop());
         }else{
             System.out.println(Numbers.pop());
@@ -169,11 +168,12 @@ public class Calculator {
     private boolean isPartOfNumber(char i){
         return Character.isDigit(i) || i == '.';
     }
+
     private boolean isOperator(char i){
-        return i == '+' || i == '-' || i == '*' || i == '/' || i == '%';
+        return i == '+' || i == '-' || i == '*' || i == '/' || i == '%' || i == '^';
     }
 
-    private  double performOperation(char operator, double num1, double num2) throws IllegalArgumentException{
+    private static double performOperation(char operator, double num1, double num2) throws IllegalArgumentException{
         if(operator == '+'){
             return num1 + num2;
         }
@@ -189,6 +189,9 @@ public class Calculator {
         else if(operator == '%'){
             return num2 % num1;
         }
+        else if(operator == '^'){
+            return Math.pow(num2, num1);
+        }
         else{
             //I didn't bother to catch this because it should be impossible to get here...
             //Watch someone show me an obvious flaw in my code that catching this error
@@ -196,19 +199,6 @@ public class Calculator {
             throw new IllegalArgumentException("Invalid Operator");
         }
 
-    }
-
-    private boolean isValidNumber(String toCheck){
-        int numOfDot = 0;
-        boolean isAllNum = true;
-        for(int i = 0; i < toCheck.length(); i++){
-            isAllNum = (isPartOfNumber(toCheck.charAt(i)));
-            if(toCheck.charAt(i) == '.'){
-                numOfDot++;
-            }
-        }
-
-        return isAllNum && numOfDot == 1;
     }
 
 }
