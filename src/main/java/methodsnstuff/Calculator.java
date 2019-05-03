@@ -137,12 +137,18 @@ public class Calculator {
             }
             //While the specification only wants one long string, this method is a bit more robust
             // as it can take a string in any format as long as there are digits entered
-            else if(isPartOfNumber(postFixExpression.charAt(i))){
+            else if(isPartOfNumber(postFixExpression.charAt(i)) && !hasErrored){
                 toPush += postFixExpression.charAt(i);
 
                 if(!isPartOfNumber(postFixExpression.charAt(i+1))){
-                    Numbers.push(Double.valueOf(toPush));
-                    toPush = "";
+
+                    if(isValidNumber(toPush)){
+                        Numbers.push(Double.valueOf(toPush));
+                        toPush = "";
+                    }else{
+                        hasErrored = true;
+                    }
+
                 }
 
             }
@@ -151,7 +157,7 @@ public class Calculator {
         //print the result when finished - This could fail if the previous try{} failed
         //This will only run if the stack contains one item and an error has not occured.
         if(Numbers.getSize() == 1 && !hasErrored){
-            System.out.println("IS HERE");
+            System.out.println("The answer is: " + Numbers.peek());
             return("The answer is: " + Numbers.pop());
         }else{
             System.out.println(Numbers.pop());
@@ -167,7 +173,7 @@ public class Calculator {
         return i == '+' || i == '-' || i == '*' || i == '/' || i == '%';
     }
 
-    private static double performOperation(char operator, double num1, double num2) throws IllegalArgumentException{
+    private  double performOperation(char operator, double num1, double num2) throws IllegalArgumentException{
         if(operator == '+'){
             return num1 + num2;
         }
@@ -190,6 +196,19 @@ public class Calculator {
             throw new IllegalArgumentException("Invalid Operator");
         }
 
+    }
+
+    private boolean isValidNumber(String toCheck){
+        int numOfDot = 0;
+        boolean isAllNum = true;
+        for(int i = 0; i < toCheck.length(); i++){
+            isAllNum = (isPartOfNumber(toCheck.charAt(i)));
+            if(toCheck.charAt(i) == '.'){
+                numOfDot++;
+            }
+        }
+
+        return isAllNum && numOfDot == 1;
     }
 
 }

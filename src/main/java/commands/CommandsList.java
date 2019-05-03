@@ -17,6 +17,8 @@ public class CommandsList extends CommandClientBuilder {
         this.addCommand(new GuildCommand());
         this.addCommand(new ShutdownCommand());
         this.addCommand(new CalcCommand());
+        this.addCommand(new PostfixCommand());
+
 
         return this;
     }
