@@ -25,7 +25,7 @@ public class main {
         client.setOwnerId(id);
         client.setGame(Game.playing("with existence"));
         client.setPrefix(prefix);
-        client.commandList();
+        client.commandList(waiter);
 
         new JDABuilder(AccountType.BOT)
                 .setToken(token)
