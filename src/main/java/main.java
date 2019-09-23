@@ -13,7 +13,8 @@ public class main {
 
     public static void main(String[] args) throws Exception {
 
-        List<String> stuff = Files.readAllLines(Paths.get("wow.txt"));
+        // Gets
+        List<String> stuff = Files.readAllLines(Paths.get("config.txt"));
 
         String id = stuff.get(0);
         String token = stuff.get(1);

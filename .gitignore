@@ -4,5 +4,5 @@ out
 *.iws
 *.iml
 .idea
-wow.txt
-!wow.txt.example
+config.txt
+!config.txt.example
