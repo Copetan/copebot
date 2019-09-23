@@ -3,7 +3,7 @@ a discord bot that does a lot of random things! I don't know if anyone will actu
 
 ## Authors
 
-* **Copetan** - *Author* - [Copetan (He wont let me put his real name)](https://github.com/Copetan)
+* **Copetan** - *Author* - [Copetan (She wont let me put her real name)](https://github.com/Copetan)
 * **Thomas Wessel** - *Co-Author* - [Collectioncard](https://github.com/Collectioncard)
 
 
