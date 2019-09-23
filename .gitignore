@@ -4,3 +4,5 @@ out
 *.iws
 *.iml
 .idea
+*.example
+wow.txt
