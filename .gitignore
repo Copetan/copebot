@@ -6,3 +6,8 @@ out
 .idea
 config.txt
 !config.txt.example
+.gradle
+.settings
+.classpath
+.project
+bin

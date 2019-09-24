@@ -2,7 +2,6 @@ package commands;
 
 import com.jagrosh.jdautilities.command.CommandClientBuilder;
 import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
-import com.jagrosh.jdautilities.examples.command.ShutdownCommand;
 import commands.list.*;
 
 
@@ -19,7 +18,7 @@ public class CommandsList extends CommandClientBuilder {
         this.addCommand(new CalcCommand());
         this.addCommand(new PostfixCommand());
         this.addCommand(new HistoryCommand(waiter));
-
+        this.addCommand(new ActivityCommand());
 
         return this;
     }
