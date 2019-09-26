@@ -1,5 +1,5 @@
-# copebot
-a discord bot that does a lot of random things! I don't know if anyone will actually read this, but I think it is pretty cool!
+# Copebot
+A discord bot that does a lot of random things! I don't know if anyone will actually read this, but I think it is pretty cool!
 
 ## Authors
 
@@ -14,4 +14,4 @@ This project is licensed under the Apache License - see the [LICENSE.md](https:/
 
 ## Acknowledgments
 
-*Thanks to the guy who made the discord bot packages for java!
+* **[DV8FromTheWorld](https://github.com/DV8FromTheWorld)** for making and providing the **[JDA](https://github.com/DV8FromTheWorld/JDA)** library

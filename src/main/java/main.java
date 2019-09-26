@@ -37,6 +37,5 @@ public class main {
                 .addEventListeners(waiter)
                 .addEventListeners(client.build())
                 .build();
-
     }
 }

@@ -11,7 +11,7 @@ public class CommandsList extends CommandClientBuilder {
     public CommandClientBuilder commandList(EventWaiter waiter) {
 
         this.addCommand(new TestCommand());
-        this.addCommand(new NameCommand());
+        this.addCommand(new UsernameCommand());
         this.addCommand(new WikiCommand());
         this.addCommand(new GuildCommand());
         this.addCommand(new ShutdownCommand());
@@ -19,6 +19,8 @@ public class CommandsList extends CommandClientBuilder {
         this.addCommand(new PostfixCommand());
         this.addCommand(new HistoryCommand(waiter));
         this.addCommand(new ActivityCommand());
+        this.addCommand(new VoiceRecordCommand());
+        this.addCommand(new JoinVoiceCommand());
 
         return this;
     }

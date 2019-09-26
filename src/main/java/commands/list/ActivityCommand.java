@@ -11,15 +11,16 @@ public class ActivityCommand extends Command {
 
 	public ActivityCommand() {
 		this.name = "setactivity";
+		this.aliases = new String[]{"setgame","activity","sa"};
 		this.help = "This command changes the bot's activity. Only the owner of this bot can use this command!";
-		this.arguments = "[playing|listening|watching] <name of the activity>";
+		this.arguments = "<playing|listening|watching> <name of the activity>";
 		this.category = new Category("Owner");
 		this.ownerCommand = true;
 		this.guildOnly = false;
 	}
 
 	@Override
-	protected void execute(CommandEvent event){
+	protected void execute(CommandEvent event) {
 
 		String[] args = event.getArgs().split(" ",2);
 
@@ -27,7 +28,7 @@ public class ActivityCommand extends Command {
 			event.reply("You did not input the activity name!");
 		} else {
 			try {
-				if (args[0].equalsIgnoreCase("playing")) {
+				if (args[0].equalsIgnoreCase("playing") || args[0].equalsIgnoreCase("game")) {
 
 					event.reply("Applying activity!");
 					event.getJDA().getPresence().setActivity(Activity.playing(args[1]));
@@ -45,11 +46,11 @@ public class ActivityCommand extends Command {
 				} else {
 					event.reply("Not a valid activity type!");
 				}
-			} catch (Exception except) {
-				event.reply("You did not enter a valid character!");
+			} catch (Exception e) {
+				event.reply("There was an error! Please check your private channel for more information");
+				event.replyInDm(e.getMessage());
 			}
 		}
-
 		CommandLogger.logger(event,name);
 	}
 }
