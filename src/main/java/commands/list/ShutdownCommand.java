@@ -9,7 +9,7 @@ public class ShutdownCommand extends Command {
 
 	public ShutdownCommand() {
 		this.name = "shutdown";
-		this.aliases = new String[]{"sd"};
+		this.aliases = new String[]{"sd","goaway"};
 		this.help = "This command shuts down the bot. Only the owner of this bot can use this command!";
 		this.category = new Category("Owner");
 		this.guildOnly = false;

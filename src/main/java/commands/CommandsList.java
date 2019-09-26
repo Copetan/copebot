@@ -21,6 +21,7 @@ public class CommandsList extends CommandClientBuilder {
         this.addCommand(new ActivityCommand());
         this.addCommand(new VoiceRecordCommand());
         this.addCommand(new JoinVoiceCommand());
+        this.addCommand(new LeaveVoiceCommand());
 
         return this;
     }
