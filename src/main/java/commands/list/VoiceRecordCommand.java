@@ -28,6 +28,6 @@ public class VoiceRecordCommand extends Command {
 			event.reply("I am not in a voice channel!");
 			return;
 		}
-		// event.getGuild().g
+		event.getGuild().getAudioManager().getReceivingHandler();
 	}
 }
