@@ -4,3 +4,15 @@ out
 *.iws
 *.iml
 .idea
+
+# config file
+config.txt
+!config.txt.example
+
+# other stuff
+.gradle
+.settings
+.classpath
+.project
+bin
+build

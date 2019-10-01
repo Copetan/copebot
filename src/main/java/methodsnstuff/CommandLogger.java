@@ -1,7 +1,7 @@
 package methodsnstuff;
 
 import com.jagrosh.jdautilities.command.CommandEvent;
-import net.dv8tion.jda.core.entities.ChannelType;
+import net.dv8tion.jda.api.entities.ChannelType;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
