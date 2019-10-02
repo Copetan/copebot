@@ -2,6 +2,7 @@ package commands.list;
 
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
+import commands.CategoriesList;
 import methodsnstuff.CommandLogger;
 import net.dv8tion.jda.api.entities.Activity;
 
@@ -13,8 +14,8 @@ public class ActivityCommand extends Command {
 		this.name = "setactivity";
 		this.aliases = new String[]{"setgame","activity","sa"};
 		this.help = "This command changes the bot's activity. Only the owner of this bot can use this command!";
+		this.category = new CategoriesList.Bot();
 		this.arguments = "<playing|listening|watching> <name of the activity>";
-		this.category = new Category("Owner");
 		this.ownerCommand = true;
 		this.guildOnly = false;
 	}

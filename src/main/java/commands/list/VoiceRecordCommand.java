@@ -2,6 +2,7 @@ package commands.list;
 
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
+import commands.CategoriesList;
 import methodsnstuff.CommandLogger;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.VoiceChannel;
@@ -12,7 +13,7 @@ public class VoiceRecordCommand extends Command {
 		this.name = "voicerecord";
 		this.aliases = new String[]{"vr"};
 		this.help = "This command can be used to record audio from a voice channel";
-		this.category = new Category("Admin");
+		this.category = new CategoriesList.Audio();
 		this.userPermissions = new Permission[]{Permission.VOICE_MUTE_OTHERS,
 				Permission.VOICE_MOVE_OTHERS,
 				Permission.VOICE_DEAF_OTHERS};

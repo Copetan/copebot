@@ -5,7 +5,6 @@ import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
 import commands.list.*;
 
 
-
 public class CommandsList extends CommandClientBuilder {
 
     public CommandClientBuilder commandList(EventWaiter waiter) {

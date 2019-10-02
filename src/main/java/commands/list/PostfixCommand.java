@@ -2,6 +2,7 @@ package commands.list;
 
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
+import commands.CategoriesList;
 import methodsnstuff.Calculator;
 import methodsnstuff.CommandLogger;
 
@@ -9,7 +10,7 @@ public class PostfixCommand extends Command {
 
     public PostfixCommand(){
         this.name = "postfix";
-        this.category = new Category("Tools");
+        this.category = new CategoriesList.Tools();
         this.help = "This command gives the postfix version of an equation";
         this.arguments = "<infix equation to be converted>";
         this.guildOnly = false;

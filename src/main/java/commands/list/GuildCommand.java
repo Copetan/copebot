@@ -2,13 +2,14 @@ package commands.list;
 
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
+import commands.CategoriesList;
 import methodsnstuff.CommandLogger;
 
 public class GuildCommand extends Command {
 
     public GuildCommand(){
         this.name = "server";
-        this.category = new Category("Miscellaneous");
+        this.category = new CategoriesList.Miscellaneous();
         this.help = "This Command states the server name (only works in servers)";
         this.guildOnly = true;
     }
