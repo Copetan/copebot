@@ -2,6 +2,7 @@ package commands.list;
 
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
+import commands.CategoriesList;
 import methodsnstuff.CommandLogger;
 import net.dv8tion.jda.api.JDA;
 
@@ -11,7 +12,7 @@ public class ShutdownCommand extends Command {
 		this.name = "shutdown";
 		this.aliases = new String[]{"sd","goaway"};
 		this.help = "This command shuts down the bot. Only the owner of this bot can use this command!";
-		this.category = new Category("Owner");
+		this.category = new CategoriesList.Bot();
 		this.guildOnly = false;
 		this.ownerCommand = true;
 	}

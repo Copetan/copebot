@@ -2,6 +2,7 @@ package commands.list;
 
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
+import commands.CategoriesList;
 import methodsnstuff.CommandLogger;
 
 public class LeaveVoiceCommand extends Command {
@@ -9,6 +10,7 @@ public class LeaveVoiceCommand extends Command {
 		this.name = "leavevoice";
 		this.aliases = new String[]{"leave","disconnect"};
 		this.help = "Make me leave the Voice Channel I'm currently connected to";
+		this.category = new CategoriesList.Audio();
 		this.guildOnly = true;
 	}
 

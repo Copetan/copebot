@@ -2,6 +2,7 @@ package commands.list;
 
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
+import commands.CategoriesList;
 import methodsnstuff.CommandLogger;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
@@ -11,7 +12,7 @@ public class TestCommand extends Command {
     public TestCommand(){
         this.name = "test";
         this.help = "This is a test";
-        this.category = new Category("Test");
+        this.category = new CategoriesList.Test();
         this.guildOnly = false;
     }
 
