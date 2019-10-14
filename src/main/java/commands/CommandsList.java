@@ -22,6 +22,7 @@ public class CommandsList extends CommandClientBuilder {
         this.addCommand(new JoinVoiceCommand());
         this.addCommand(new LeaveVoiceCommand());
         this.addCommand(new PlayAudioCommand());
+        this.addCommand(new TalkCommand(waiter));
 
         return this;
     }

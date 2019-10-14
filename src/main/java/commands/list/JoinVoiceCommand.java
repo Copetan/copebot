@@ -37,12 +37,12 @@ public class JoinVoiceCommand extends Command {
 			}
 		} else if (event.getMember().getVoiceState().inVoiceChannel()) {
 			VoiceChannel channel = event.getMember().getVoiceState().getChannel();
-			event.reply("Joining voice channel " + channel.toString());
+			event.reply("Joining voice channel " + channel.getName());
 			event.getGuild().getAudioManager().openAudioConnection(channel);
 		} else if (event.getMember().hasPermission(Permission.ADMINISTRATOR)) {
 			try {
 				VoiceChannel channel = event.getGuild().getVoiceChannelById(test.trim());
-				event.reply("Joining voice channel " + channel.toString());
+				event.reply("Joining voice channel " + channel.getName());
 				event.getGuild().getAudioManager().openAudioConnection(channel);
 			} catch (IllegalArgumentException e) {
 				event.reply("Invalid channel ID!");

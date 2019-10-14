@@ -10,7 +10,7 @@ import java.nio.file.Paths;
 import java.util.List;
 
 
-public class main {
+public class CopebotJavaEdition {
 
     public static void main(String[] args) throws Exception {
 

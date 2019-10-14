@@ -16,8 +16,8 @@ public class UsernameCommand extends Command {
     }
 
     @Override
-    protected void execute(CommandEvent event){
-        event.reply("Your username is " + event.getAuthor().getName());
+    protected void execute(CommandEvent event) {
         CommandLogger.logger(event, name);
+        event.reply("Your username is " + event.getAuthor().getName());
     }
 }
