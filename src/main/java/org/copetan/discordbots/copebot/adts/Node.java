@@ -1,4 +1,4 @@
-package adts;
+package org.copetan.discordbots.copebot.adts;
 
 public class Node {
     private Object containedItem;

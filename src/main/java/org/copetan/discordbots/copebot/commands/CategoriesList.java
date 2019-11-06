@@ -1,4 +1,4 @@
-package commands;
+package org.copetan.discordbots.copebot.commands;
 
 import com.jagrosh.jdautilities.command.Command;
 

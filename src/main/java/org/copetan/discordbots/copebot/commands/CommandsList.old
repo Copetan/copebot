@@ -1,10 +1,10 @@
-package commands;
+package org.copetan.discordbots.copebot.commands;
 
 import net.dv8tion.jda.core.entities.ChannelType;
-import net.dv8tion.jda.core.events.message.*;
+import net.dv8tion.jda.core.org.copetan.discordbots.copebot.events.message.*;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
-public class commands.CommandsList extends ListenerAdapter {
+public class org.copetan.discordbots.copebot.commands.CommandsList extends ListenerAdapter {
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         boolean hasTalked = false;

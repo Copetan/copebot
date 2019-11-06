@@ -1,4 +1,4 @@
-package methodsnstuff;
+package org.copetan.discordbots.copebot.methodsnstuff;
 
 import java.io.BufferedReader;
 import java.io.IOException;

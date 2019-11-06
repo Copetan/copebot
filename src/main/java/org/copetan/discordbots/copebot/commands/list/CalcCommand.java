@@ -1,10 +1,10 @@
-package commands.list;
+package org.copetan.discordbots.copebot.commands.list;
 
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
-import commands.CategoriesList;
-import methodsnstuff.Calculator;
-import methodsnstuff.CommandLogger;
+import org.copetan.discordbots.copebot.commands.CategoriesList;
+import org.copetan.discordbots.copebot.methodsnstuff.Calculator;
+import org.copetan.discordbots.copebot.methodsnstuff.CommandLogger;
 
 public class CalcCommand extends Command {
 

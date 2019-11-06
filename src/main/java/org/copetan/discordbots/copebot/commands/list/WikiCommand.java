@@ -1,11 +1,9 @@
-package commands.list;
+package org.copetan.discordbots.copebot.commands.list;
 
 import benjaminkomen.jwiki.core.Wiki;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
-import commands.CategoriesList;
-import methodsnstuff.JsonReader;
-import org.json.JSONObject;
+import org.copetan.discordbots.copebot.commands.CategoriesList;
 
 public class WikiCommand extends Command {
 

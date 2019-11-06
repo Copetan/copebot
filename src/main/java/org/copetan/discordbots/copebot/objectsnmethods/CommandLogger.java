@@ -1,4 +1,4 @@
-package methodsnstuff;
+package org.copetan.discordbots.copebot.methodsnstuff;
 
 import com.jagrosh.jdautilities.command.CommandEvent;
 import net.dv8tion.jda.api.entities.ChannelType;

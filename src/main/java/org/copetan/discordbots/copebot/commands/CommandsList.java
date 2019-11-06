@@ -1,13 +1,13 @@
-package commands;
+package org.copetan.discordbots.copebot.commands;
 
 import com.jagrosh.jdautilities.command.CommandClientBuilder;
 import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
-import commands.list.*;
+import org.copetan.discordbots.copebot.commands.list.*;
 
 
 public class CommandsList extends CommandClientBuilder {
 
-    public CommandClientBuilder commandList(EventWaiter waiter) {
+    public void commandList(EventWaiter waiter) {
 
         this.addCommand(new TestCommand());
         this.addCommand(new UsernameCommand());
@@ -24,7 +24,6 @@ public class CommandsList extends CommandClientBuilder {
         this.addCommand(new PlayAudioCommand());
         this.addCommand(new TalkCommand(waiter));
 
-        return this;
     }
 
 }
