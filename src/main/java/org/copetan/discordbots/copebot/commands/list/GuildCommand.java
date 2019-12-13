@@ -3,13 +3,13 @@ package org.copetan.discordbots.copebot.commands.list;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import org.copetan.discordbots.copebot.commands.CategoriesList;
-import org.copetan.discordbots.copebot.methodsnstuff.CommandLogger;
+import org.copetan.discordbots.copebot.objectsnmethods.Logger;
 
 public class GuildCommand extends Command {
 
     public GuildCommand(){
         this.name = "server";
-        this.category = new CategoriesList.Miscellaneous();
+        this.category = CategoriesList.getMiscellaneousCategory();
         this.help = "This Command states the server name (only works in servers)";
         this.guildOnly = true;
     }
@@ -17,6 +17,6 @@ public class GuildCommand extends Command {
     @Override
     protected void execute(CommandEvent event){
         event.reply(event.getGuild().getName());
-        CommandLogger.logger(event, name);
+        Logger.logger(event, name);
     }
 }

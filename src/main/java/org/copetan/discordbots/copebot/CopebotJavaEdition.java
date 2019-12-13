@@ -5,15 +5,13 @@ import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
-
 import org.copetan.discordbots.copebot.commands.*;
-
+import org.copetan.discordbots.copebot.events.*;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-import static org.copetan.discordbots.copebot.events.EventsList.*;
 
 public class CopebotJavaEdition {
 
@@ -49,8 +47,6 @@ public class CopebotJavaEdition {
                 .addEventListeners(client.build())
                 .build();
 
-        addMessageEvents(botInstance);
-        addGenericEvents(botInstance);
 
     }
 }

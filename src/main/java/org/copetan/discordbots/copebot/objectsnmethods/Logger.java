@@ -1,14 +1,16 @@
-package org.copetan.discordbots.copebot.methodsnstuff;
+package org.copetan.discordbots.copebot.objectsnmethods;
 
 import com.jagrosh.jdautilities.command.CommandEvent;
 import net.dv8tion.jda.api.entities.ChannelType;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
-public class CommandLogger {
+public class Logger {
 
     public static void logger(CommandEvent event, String name) {
 
@@ -50,5 +52,14 @@ public class CommandLogger {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void logger(Object object) {
+
+        String time = Timestamp.valueOf(LocalDateTime.now()).toString();
+        String[] nameRaw = object.getClass().getName().split("\\.");
+        String name = nameRaw[nameRaw.length - 1];
+
+        System.out.println(name);
     }
 }

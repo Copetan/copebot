@@ -1,37 +1,32 @@
 package org.copetan.discordbots.copebot.commands;
 
-import com.jagrosh.jdautilities.command.Command;
+import com.jagrosh.jdautilities.command.Command.Category;
 
 public class CategoriesList {
 
-	public static class Test extends Command.Category {
-		public Test() {
-			super("Test");
-		}
+	private static final Category testCategory          = new Category("Test");
+	private static final Category toolsCategory         = new Category("Tools");
+	private static final Category audioCategory         = new Category("Audio");
+	private static final Category botCategory           = new Category("Bot");
+	private static final Category miscellaneousCategory = new Category("Miscellaneous");
+
+	public static Category getTestCategory() {
+		return testCategory;
 	}
 
-	public static class Tools extends Command.Category {
-		public Tools() {
-			super("Tools");
-		}
+	public static Category getToolsCategory() {
+		return toolsCategory;
 	}
 
-	public static class Audio extends Command.Category {
-		public Audio() {
-			super("Audio");
-		}
+	public static Category getAudioCategory() {
+		return audioCategory;
 	}
 
-	public static class Bot extends Command.Category {
-		public Bot() {
-			super("Bot");
-		}
+	public static Category getBotCategory() {
+		return botCategory;
 	}
 
-	public static class Miscellaneous extends Command.Category {
-		public Miscellaneous() {
-			super("Miscellaneous");
-		}
+	public static Category getMiscellaneousCategory() {
+		return miscellaneousCategory;
 	}
-
 }

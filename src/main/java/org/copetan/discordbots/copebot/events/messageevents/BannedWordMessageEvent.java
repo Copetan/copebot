@@ -9,6 +9,10 @@ public class BannedWordMessageEvent extends ListenerAdapter {
 	@Override
 	public void onMessageReceived(MessageReceivedEvent event) {
 		Message message = event.getMessage();
-
+		if (message.getContentRaw().equalsIgnoreCase("hello")) {
+			if (!message.getAuthor().equals(event.getJDA().getSelfUser())) {
+				event.getChannel().sendMessage("hello").queue();
+			}
+		}
 	}
 }

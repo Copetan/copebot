@@ -7,7 +7,7 @@
 2. Calculate the result of a postfix equation - DONE
 */
 
-package org.copetan.discordbots.copebot.methodsnstuff;
+package org.copetan.discordbots.copebot.objectsnmethods;
 
 import org.copetan.discordbots.copebot.adts.Stack;
 

@@ -3,7 +3,7 @@ package org.copetan.discordbots.copebot.commands.list;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import org.copetan.discordbots.copebot.commands.CategoriesList;
-import org.copetan.discordbots.copebot.methodsnstuff.CommandLogger;
+import org.copetan.discordbots.copebot.objectsnmethods.Logger;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.VoiceChannel;
 import net.dv8tion.jda.api.exceptions.InsufficientPermissionException;
@@ -14,14 +14,14 @@ public class JoinVoiceCommand extends Command {
 		this.name = "joinvoice";
 		this.aliases = new String[]{"join","connect","voice"};
 		this.help = "Make me join a voice channel you are already in, or if you're an admin, a channel with the provided Channel ID";
-		this.category = new CategoriesList.Audio();
+		this.category = CategoriesList.getAudioCategory();
 		this.arguments = "[Optional: channel id]";
 		this.guildOnly = true;
 	}
 
 	@Override
 	protected void execute(CommandEvent event) {
-		CommandLogger.logger(event,name);
+		Logger.logger(event,name);
 
 		String test = event.getArgs();
 		if (!event.getSelfMember().hasPermission(Permission.VOICE_CONNECT)) {

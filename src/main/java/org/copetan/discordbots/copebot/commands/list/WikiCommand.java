@@ -10,7 +10,7 @@ public class WikiCommand extends Command {
     public WikiCommand(){
         this.name = "jokebattles";
         this.help = "Use this command to make searched in Joke Battles Wiki!";
-        this.category = new CategoriesList.Tools();
+        this.category = CategoriesList.getToolsCategory();
         this.arguments = "<query>";
     }
 
